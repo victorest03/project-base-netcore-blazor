@@ -1,0 +1,33 @@
+﻿<li class="@(ChildContent != null ? "treeview":"")">
+    <a href="@href">
+        <i class="@icon"></i> <span>@text</span>
+        @if (ChildContent != null)
+        {
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        }
+        </a>
+    @if (ChildContent != null)
+    {
+        <ul class="treeview-menu">
+            @ChildContent
+        </ul>
+    }
+</li>
+
+
+@code {
+    [Parameter]
+    public string href { get; set; }
+
+    [Parameter]
+    public string icon { get; set; }
+
+    [Parameter]
+    public string text { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+}

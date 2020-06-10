@@ -1,0 +1,62 @@
+﻿@inject IJSRuntime JsRuntime
+<div class="modal fade" id="@ModalId" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">@Title</h4>
+            </div>
+            <div class="modal-body">
+                @ChildContent
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" @onclick="() => Close()">Close</button>
+                <button type="button" class="btn btn-primary" @onclick="() => OnSave.Invoke()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@if (ShowBackdrop)
+{
+    <div class="modal-backdrop fade in"></div>
+}
+
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string ModalId { get; set; }
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public Action OnSave { get; set; }
+
+    [Parameter]
+    public Action OnCancel { get; set; }
+
+    [Parameter]
+    public Action OnOpend { get; set; }
+
+
+    public Guid Guid = Guid.NewGuid();
+    public string ModalDisplay = "none;";
+    public string ModalClass = "";
+    public bool ShowBackdrop = false;
+
+    public async void Open()
+    {
+        await JsRuntime.InvokeVoidAsync("functions.util.onOpenModal", this.GetType().Namespace, ModalId);
+    }
+
+    [JSInvokable]
+    public void Close()
+    {
+        OnCancel?.Invoke();
+    }
+}

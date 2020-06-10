@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SistemaVentas.Model\SistemaVentas.Model.csproj" />
+    <ProjectReference Include="..\SistemaVentas.Repository\SistemaVentas.Repository.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\SistemaVentas.UnitOfWork\SistemaVentas.UnitOfWork.csproj"/>
+  </ItemGroup>
+
+</Project>

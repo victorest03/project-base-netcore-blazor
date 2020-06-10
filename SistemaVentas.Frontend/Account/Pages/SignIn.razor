@@ -1,0 +1,32 @@
+﻿@page "/SignIn"
+@inherits SignInBase
+<EditForm Model="@Login" OnValidSubmit="@SubmitLoginForm">
+    <FluentValidationValidator />
+    <div class="form-group has-feedback">
+        <InputText @bind-Value="@Login.UserName" class="form-control" placeholder="UserName" />
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <ValidationMessage For="@(() => Login.UserName)" class="label label-danger" />
+    </div>
+    <div class="form-group has-feedback">
+        <InputText type="password" @bind-Value="@Login.Password" class="form-control" placeholder="Password" />
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <ValidationMessage For="@(() => Login.Password)" class="label label-danger" />
+    </div>
+    <div class="row">
+        <div class="col-xs-7">
+            <div class="checkbox icheck">
+                <label>
+                    <InputCheckbox id="isRememberMe" @bind-Value="@Login.RememberMe" /> Recordarme?
+                </label>
+            </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-5">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Inicio Sesion</button>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-12 text-center">
+            <label class="label label-danger">@ValidationStatus</label>
+        </div>
+    </div>
+</EditForm>

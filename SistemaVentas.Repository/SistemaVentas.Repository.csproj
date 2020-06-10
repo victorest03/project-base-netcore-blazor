@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SistemaVentas.Common\SistemaVentas.Common.csproj" />
+    <ProjectReference Include="..\SistemaVentas.Model\SistemaVentas.Model.csproj" />
+    <ProjectReference Include="..\SistemaVentas.Persistence\SistemaVentas.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

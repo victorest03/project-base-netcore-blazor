@@ -1,0 +1,13 @@
+﻿@page "/Producto"
+@attribute [Authorize]
+@inherits ProductoBase
+<h1>Producto</h1>
+
+Welcome to your new app - Crud Producto.
+
+<button @onclick="OnClickOpen">Open</button>
+
+
+<Modal ModalId="modalProducto" @ref="productoModal" Title="Example Modal" OnSave="OnSaveProductoModal">
+    <p>Parrado de contenido!!</p>
+</Modal>

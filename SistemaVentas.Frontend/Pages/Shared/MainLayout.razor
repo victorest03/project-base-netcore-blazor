@@ -1,0 +1,34 @@
+﻿@inherits LayoutComponentBase
+@inject IJSRuntime JsRuntime
+<div class="wrapper">
+    <header class="main-header">
+        <HeaderLayout />
+    </header>
+    <aside class="main-sidebar">
+        <NavLayout />
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Blank page
+                <small>it all starts here</small>
+            </h1>
+        </section>
+        <section class="content">
+            @Body
+        </section>
+    </div>
+    <footer class="main-footer">
+        <FooterLayout />
+    </footer>
+</div>
+@code
+{
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        //this.JsRuntime.Ejs().LoadLocaleData("wwwroot/plugins/syncfusion/ej2-locale/es.json").SetCulture("es-PE").LoadCldrData(new string[] { "wwwroot/plugins/syncfusion/cldr-data/es-PE/ca-gregorian.json", "wwwroot/plugins/syncfusion/cldr-data/es-PE/timeZoneNames.json", "wwwroot/plugins/syncfusion/cldr-data/es-PE/numbers.json" });
+        base.OnAfterRender(firstRender);
+    }
+
+}
